@@ -28,3 +28,5 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+The Cusco fire-prevention MVP lives on the TanStack `/` route, with shared visual tokens in `src/styles.css`; external weather information must remain clearly sourced, and SMS/community submissions must remain labeled as demonstrations until real services are configured.
