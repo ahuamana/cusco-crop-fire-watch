@@ -30,3 +30,7 @@ use the editor.
 <!-- LOVABLE:END -->
 
 The Cusco fire-prevention MVP lives on the TanStack `/` route, with shared visual tokens in `src/styles.css`; external weather information must remain clearly sourced, and SMS/community submissions must remain labeled as demonstrations until real services are configured.
+
+- Keep demo values and Peru phone validation in a browser-safe shared module with focused rule tests, so examples cannot be confused with fetched weather.
+- Use an in-memory three-step report flow; real SMS and community persistence must be connected through authenticated server services, never browser-held credentials.
+- Bundle optimized local imagery and use browser connectivity events for offline status; do not imply offline reload support without an actual cache.
