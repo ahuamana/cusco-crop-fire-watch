@@ -1,5 +1,7 @@
 # Cusco Crop Fire Watch
 
+https://github.com/user-attachments/assets/e1d6e56b-8508-4a78-8960-21fb2d7f8f39
+
 Problema identificado: incendios.
 alcance: peru / cuzco.
 entender el usuario: los agricultores.
