@@ -1,6 +1,6 @@
 # Cusco Crop Fire Watch
 
-https://github.com/user-attachments/assets/e1d6e56b-8508-4a78-8960-21fb2d7f8f39
+<img width="1512" height="776" alt="Screenshot 2026-11-15 at 10 26 33 PM" src="https://github.com/user-attachments/assets/65726a80-90af-43ad-9859-fe969baf1861" />
 
 Problema identificado: incendios.
 alcance: peru / cuzco.
