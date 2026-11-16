@@ -76,6 +76,9 @@
   --color-sky: var(--sky);
   --color-stone: var(--stone);
   --color-paper: var(--paper);
+  --color-maize: var(--maize);
+  --color-maize-soft: var(--maize-soft);
+  --color-risk-surface: var(--risk-surface);
   --font-display: var(--font-display);
   --font-sans: var(--font-body);
 }
@@ -90,7 +93,17 @@
   --sky: oklch(0.52 0.084 232);
   --stone: oklch(0.54 0.026 78);
   --paper: oklch(0.973 0.009 89);
-  --hero-shade: linear-gradient(90deg, oklch(0.18 0.038 149 / 86%) 0%, oklch(0.19 0.032 149 / 58%) 45%, oklch(0.2 0.03 149 / 10%) 100%);
+  --maize: oklch(0.85 0.155 88);
+  --maize-soft: oklch(0.96 0.07 90);
+  --risk-surface: oklch(0.975 0.022 55);
+  --risk-low: oklch(0.92 0.063 149);
+  --risk-medium: oklch(0.93 0.12 91);
+  --risk-high: oklch(0.56 0.174 40);
+  --risk-extreme: oklch(0.9 0.059 25);
+  --risk-extreme-ink: oklch(0.43 0.16 25);
+  --shadow-soft: 0 4px 18px oklch(0.3 0.025 149 / 5%);
+  --shadow-emergency: 0 -4px 20px oklch(0.3 0.025 149 / 7%);
+  --hero-shade: linear-gradient(90deg, oklch(0.19 0.035 149 / 94%) 0%, oklch(0.19 0.035 149 / 88%) 40%, oklch(0.19 0.035 149 / 20%) 100%);
   --background: oklch(0.986 0.005 90);
   --foreground: oklch(0.25 0.032 148);
   --card: oklch(1 0 0);
@@ -102,7 +115,7 @@
   --secondary: oklch(0.95 0.025 137);
   --secondary-foreground: oklch(0.3 0.058 153);
   --muted: oklch(0.956 0.009 90);
-  --muted-foreground: oklch(0.49 0.026 87);
+  --muted-foreground: oklch(0.43 0.026 87);
   --accent: oklch(0.93 0.044 144);
   --accent-foreground: oklch(0.3 0.058 153);
   --destructive: oklch(0.577 0.245 27.325);
@@ -126,6 +139,13 @@
 }
 
 .dark {
+  --maize: oklch(0.85 0.155 88);
+  --maize-soft: oklch(0.3 0.05 88);
+  --risk-surface: oklch(0.22 0.028 40);
+  --risk-low: oklch(0.32 0.05 149);
+  --risk-medium: oklch(0.36 0.07 91);
+  --risk-extreme: oklch(0.3 0.06 25);
+  --risk-extreme-ink: oklch(0.85 0.08 25);
   --background: oklch(0.129 0.042 264.695);
   --foreground: oklch(0.984 0.003 247.858);
   --card: oklch(0.208 0.042 265.755);
@@ -169,10 +189,13 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.6;
   }
 
   html {
     scroll-behavior: smooth;
+    scroll-padding-bottom: 100px;
   }
 
   ::selection {
@@ -206,6 +229,47 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.page-width { width: min(100% - 2.5rem, 1160px); margin-inline: auto; }
+.section-space { padding-block: 64px; }
+.section-title { font-family: var(--font-display); font-size: 40px; line-height: 1.15; color: var(--forest); }
+.eyebrow { margin-bottom: 12px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0; color: var(--leaf); }
+.hero { min-height: 430px; }
+.hero-cta { min-height: 56px; height: auto; padding: 14px 20px; background: var(--maize); color: var(--forest); font-size: 18px; font-weight: 700; white-space: normal; }
+.hero-cta:hover { background: var(--maize-soft); }
+.hero-secondary { min-height: 56px; height: auto; font-size: 18px; padding: 14px 16px; color: var(--primary-foreground); white-space: normal; }
+.hero-secondary:hover { background: color-mix(in oklab, var(--forest) 80%, transparent); color: var(--primary-foreground); }
+.language-button { min-height: 48px; padding-inline: 12px; font-size: 14px; }
+.action-button { min-height: 52px; height: auto; padding: 12px 20px; font-size: 18px; font-weight: 700; white-space: normal; }
+.large-input { height: 56px; font-size: 18px; background: var(--card); }
+.report-choice { position: relative; display: flex; flex-direction: column; height: 112px; font-size: 18px; font-weight: 700; gap: 12px; }
+.report-choice svg { width: 28px; height: 28px; }
+.demo-label { display: inline-flex; align-items: center; background: var(--muted); color: var(--foreground); padding: 4px 8px; border-radius: 3px; font-size: 12px; font-weight: 700; }
+.risk-low { background: var(--risk-low); color: var(--forest); }
+.risk-medium { background: var(--risk-medium); color: var(--forest); }
+.risk-high { background: var(--risk-high); color: var(--primary-foreground); }
+.risk-extreme { background: var(--risk-extreme); color: var(--risk-extreme-ink); }
+.risk-selected { outline: 2px solid var(--fire); outline-offset: 3px; }
+.community-card { box-shadow: var(--shadow-soft); animation: notice-in 300ms ease-out both; }
+.emergency-bar { box-shadow: var(--shadow-emergency); padding-bottom: env(safe-area-inset-bottom); }
+.emergency-button { min-height: 48px; height: auto; padding: 10px 15px; font-size: 16px; white-space: normal; }
+.emergency-button strong { margin-left: 6px; font-size: 20px; }
+.andean-strip { background-color: var(--maize); background-image: repeating-linear-gradient(45deg, transparent 0 8px, var(--fire) 8px 12px, transparent 12px 20px, var(--forest) 20px 24px); }
+.skip-link { position: fixed; top: -100px; left: 20px; z-index: 60; background: var(--card); color: var(--foreground); padding: 12px; }
+.skip-link:focus { top: 10px; }
+.risk-pulse { animation: risk-pulse 3s ease-in-out infinite; }
+@keyframes risk-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+@media (min-width: 640px) { .page-width { width: min(100% - 4rem, 1160px); } }
+@media (max-width: 639px) {
+  .section-space { padding-block: 40px; }
+  .section-title { font-size: 32px; }
+  .hero { min-height: 0; }
+  .hero-shade { background: linear-gradient(90deg, oklch(0.19 0.035 149 / 96%), oklch(0.19 0.035 149 / 80%)); }
+  .emergency-button { padding: 8px; font-size: 13px; }
+  .emergency-button strong { display: block; margin-left: 0; font-size: 20px; line-height: 1.1; }
+  .emergency-bar .page-width { width: calc(100% - 1.5rem); }
+  .language-button { padding-inline: 9px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
